@@ -3,17 +3,32 @@ const express=require("express");
 
 const app=express(); // this is the instance of the express js Applicaton  it is like creating a new web server
 
-app.use("/",(req,res)=>{        // handling the server
-    res.send("Hello Friends Chai pee lo")
-})
-
+// this will match the all http method API calls to /test/users 
 app.use("/test",(req,res)=>{        // handling the server
     res.send("Hello test from the Server")
 })
-
-app.use("/hello",(req,res)=>{        // handling the server
-    res.send("Hello from the Server")
+ //this will only handle GET call   to /user/
+app.get("/user",(req,res)=>{ 
+    console.log(req.query   )
+    res.send({firstName:"Sudhir",lastName:"kumar"})
 })
+
+app.post("/user",(req,res)=>{
+    res.send("Data successfully saved to the database")
+})
+app.use("/delete",(req,res)=>{        // handling the server
+    res.send("Data Deleted Succesfully")
+})
+
+
+// app.get("/user/:userID/:name/:password",(req,res)=>{ 
+//     console.log(req.params )
+//     res.send({firstName:"Sudhir",lastName:"kumar"})
+// })
+
+// app.use("/hello",(req,res)=>{        // handling the server
+//     res.send("Hello from the Server")
+// })
 
 
 app.listen(3000,()=>{
