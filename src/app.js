@@ -1,6 +1,12 @@
 const express = require("express");
 
 const app = express(); // this is the instance of the express application; it creates a new web server
+
+app.use("/",(req,res,next)=>{
+  // res.send("Handling  /router")
+  next();
+})
+
 //warapping the routes in an array does not affect anything 
 app.use(
   "/user",
