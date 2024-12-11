@@ -1,0 +1,3 @@
+-Js object  vs JSON diffrence 
+- express.json :-THis is a middleware available in Express v4.16.0 onwards
+-Difference between find and findOne
